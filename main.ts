@@ -4,10 +4,23 @@ input.onButtonPressed(Button.A, function () {
 input.onButtonPressed(Button.B, function () {
     送信するかしないか = 0
 })
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    if (light2 == 0) {
+        light2 = 1
+        basic.showIcon(IconNames.Square)
+    } else {
+        light2 = 0
+        basic.showIcon(IconNames.No)
+    }
+    radio.sendValue("light", light2)
+    basic.pause(1000)
+})
 let y_ac = 0
 let x_ac = 0
 let accabs = 0
 let 送信するかしないか = 0
+let light2 = 0
+light2 = 0
 radio.setGroup(1)
 basic.showIcon(IconNames.Diamond)
 basic.forever(function () {
