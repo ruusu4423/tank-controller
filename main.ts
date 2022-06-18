@@ -7,10 +7,10 @@ input.onButtonPressed(Button.B, function () {
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     if (light2 == 0) {
         light2 = 1
-        basic.showIcon(IconNames.Square)
+        music.playMelody("C D E F G A B C5 ", 500)
     } else {
         light2 = 0
-        basic.showIcon(IconNames.No)
+        music.playMelody("C5 B A G F E D C ", 500)
     }
     radio.sendValue("light", light2)
     basic.pause(1000)
