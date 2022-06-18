@@ -7,13 +7,10 @@ input.onButtonPressed(Button.B, function () {
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     if (light2 == 0) {
         light2 = 1
-        music.playMelody("C D E F G A B C5 ", 500)
     } else {
         light2 = 0
-        music.playMelody("C5 B A G F E D C ", 500)
     }
     radio.sendValue("light", light2)
-    basic.pause(1000)
 })
 let y_ac = 0
 let x_ac = 0
@@ -22,7 +19,14 @@ let 送信するかしないか = 0
 let light2 = 0
 light2 = 0
 radio.setGroup(1)
-basic.showIcon(IconNames.Diamond)
+basic.showLeds(`
+    # . # . #
+    # # # . #
+    # . # . #
+    # . # # #
+    # . # . #
+    `)
+basic.pause(1000)
 basic.forever(function () {
     led.plotBarGraph(
     accabs,
