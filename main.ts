@@ -37,7 +37,7 @@ basic.forever(function () {
     if (送信するかしないか == 1) {
         x_ac = input.acceleration(Dimension.X)
         y_ac = input.acceleration(Dimension.Y)
-        degree = pins.analogReadPin(AnalogPin.P0) / 709 * 1024
+        degree = (1 - (pins.analogReadPin(AnalogPin.P0) - 312) / 711) * 180
         radio.sendValue("xac", x_ac)
         radio.sendValue("yac", y_ac)
         radio.sendValue("degree", degree)
