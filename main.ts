@@ -12,6 +12,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     }
     radio.sendValue("light", light2)
 })
+let degree = 0
 let y_ac = 0
 let x_ac = 0
 let accabs = 0
@@ -36,10 +37,13 @@ basic.forever(function () {
     if (送信するかしないか == 1) {
         x_ac = input.acceleration(Dimension.X)
         y_ac = input.acceleration(Dimension.Y)
+        degree = pins.analogReadPin(AnalogPin.P0) / 709 * 1024
         radio.sendValue("xac", x_ac)
         radio.sendValue("yac", y_ac)
+        radio.sendValue("degree", degree)
     } else {
         radio.sendValue("xac", 0)
         radio.sendValue("yac", 0)
+        radio.sendValue("degree", 0)
     }
 })
